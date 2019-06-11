@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Test server working</title>
+</head>
+<body>
+    <div class="container">
+
+        <form action="/create_pet" method="POST">
+        <table>
+            <tr>
+                <td>First Name:</td>
+                <td>
+                    <input type="text" name="first_name">
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>
+                    <input type="text" name="last_name">
+                </td>
+            </tr>
+            <tr>
+                <td>Email Name</td>
+                <td>
+                    <input type="text" name="email_name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add">
+                </td>
+            </tr>
+        </table>
+        </form>
+
+
+        <table class="table table-dark">
+            {% for user in users %}
+            <tr>
+                <td>{{ user['id'] }}</td>
+                <td>{{ user['first_name'] }}</td>
+                <td>{{ user['last_name'] }}</td>
+                <td>{{ user['email'] }}</td>
+                <td>{{ user['created_at'] }}</td>
+                <td>{{ user['updated_at'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</body>
+</html>
